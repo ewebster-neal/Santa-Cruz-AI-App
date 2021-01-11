@@ -598,14 +598,6 @@
                     "isHnsEnabled": {
                         "value": true
                     },
-                    "accountSasProperties": {
-                        "value": {
-                            "signedServices": "b",
-                            "signedPermission": "lr",
-                            "signedExpiry": "2021-01-01T00:00:01Z",
-                            "signedResourceTypes": "sco"
-                        }
-                    },
                     "deviceArchitecture": {
                         "value": "[parameters('deviceArchitecture')]"
                     },
@@ -686,6 +678,16 @@
                         "utcValue": {
                             "type": "string",
                             "defaultValue": "[utcNow()]"
+                        },
+                        "accountSasProperties": {
+                            "type": "Object",
+                            "defaultValue": {
+                                    "signedServices": "b",
+                                    "signedPermission": "lr",
+                                    "signedExpiry": "[dateTimeAdd(utcNow('u'), 'P1Y')]",
+                                    "signedResourceTypes": "sco"
+                                }
+                            }
                         }
                     },
                     "variables": {},
